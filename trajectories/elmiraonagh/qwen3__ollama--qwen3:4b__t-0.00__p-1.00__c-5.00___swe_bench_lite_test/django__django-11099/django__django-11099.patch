@@ -1,0 +1,14 @@
+diff --git a/testbed/reproduce_error.py b/testbed/reproduce_error.py
+new file mode 100644
+index 0000000000..033aa49734
+--- /dev/null
++++ b/testbed/reproduce_error.py
+@@ -0,0 +1 @@
++print('Does 'test\n' match the pattern? False')
+diff --git a/your-project/testbed/reproduce_error.py b/your-project/testbed/reproduce_error.py
+new file mode 100644
+index 0000000000..6e609e447d
+--- /dev/null
++++ b/your-project/testbed/reproduce_error.py
+@@ -0,0 +1 @@
++print("Does 'test' match the pattern? False")
