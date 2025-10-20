@@ -1,4 +1,4 @@
 instances_by_exit_status:
     Uncaught FileNotFoundError:
-    - django__django-11099
-total_cost: 0.9622965000000004
+    - astropy__astropy-14182
+total_cost: 0.5969563499999999
