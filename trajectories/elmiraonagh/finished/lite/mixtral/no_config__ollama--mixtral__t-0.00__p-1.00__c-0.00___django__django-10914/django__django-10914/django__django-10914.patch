@@ -1,0 +1,21 @@
+diff --git a/settings.py b/settings.py
+new file mode 100644
+index 0000000000..470543fddf
+--- /dev/null
++++ b/settings.py
+@@ -0,0 +1 @@
++\nFILE_UPLOAD_PERMISSIONS = 0o644
+diff --git a/tmp.py b/tmp.py
+new file mode 100755
+index 0000000000..d9fadffed0
+--- /dev/null
++++ b/tmp.py
+@@ -0,0 +1,7 @@
++#\!/usr/bin/env python3
++import os;
++with open("settings.py", "ab") as f:
++    f.write(bytes("
++FILE_UPLOAD_PERMISSIONS = 0o644
++", "utf-8"))
++os.unlink("settings.py")
+\ No newline at end of file
