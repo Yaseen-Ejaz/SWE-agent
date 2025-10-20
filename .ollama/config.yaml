@@ -1,0 +1,2 @@
+keep_alive: 2h
+num_ctx: 8192

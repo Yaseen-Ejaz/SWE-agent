@@ -1,3 +1,6 @@
+
+
+
 agent:
   type: default
   templates:
@@ -16,10 +19,6 @@ agent:
       Can you help me implement the necessary changes to the repository so that the requirements specified in the <pr_description> are met?
       I've already taken care of all changes to any of the test files described in the <pr_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!
       Your task is to make the minimal changes to non-tests files in the {{working_dir}} directory to ensure the <pr_description> is satisfied.
-
-      Here are the commands you have access to:
-      {{command_docs}}
-
       Follow these steps to resolve the issue:
       1. As a first step, it might be a good idea to find and read code relevant to the <pr_description>
       2. Create a script to reproduce the error and execute it with `python <filename.py>` using the bash tool, to confirm the error
@@ -31,19 +30,17 @@ agent:
       OBSERVATION:
       {{observation}}
     next_step_no_output_template: |-
-      Your command ran successfully and did not produce any output.
+      Your last command ran successfully and did not produce any output.
   tools:
-    execution_timeout: 300
+    execution_timeout: 1000
     bundles:
       - path: tools/registry
       - path: tools/edit_anthropic
       - path: tools/review_on_submit_m
       - path: tools/diff_state
-    enable_bash_tool: true
+    # enable_bash_tool: false
     parse_function:
-      type: "action"
-      # type: "thought_action"
-      # type: function_calling
+      type: "thought_action"
     registry_variables:
       USE_FILEMAP: 'true'
       SUBMIT_REVIEW_MESSAGES:
@@ -63,11 +60,14 @@ agent:
           <diff>
           {{diff}}
           </diff>
+  history_processors: []
+  #   - type: cache_control
+  #     last_n_messages: 2
   model:
-    name: ollama/qwen3-coder:480b-cloud
+    name: ollama/qwen3:30b
     api_base: http://localhost:11434
-    per_instance_cost_limit: 0
+    per_instance_cost_limit: 0   
     total_cost_limit: 0
     per_instance_call_limit: 100
-    max_input_tokens: 0
-  history_processors: []
+    max_input_tokens: 0 
+

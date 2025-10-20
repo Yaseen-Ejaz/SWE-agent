@@ -1,0 +1,77 @@
+2025-10-20 18:02:23,928 - INFO - swea-run - Starting run. Find output files at /Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/trajectories/elmiraonagh/claude4__claude-sonnet-4-20250514__t-0.00__p-1.00__c-5.00___swe_bench_lite_test
+2025-10-20 18:02:23,930 - INFO - swea-run - Running on instance django__django-11099
+2025-10-20 18:02:46,195 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:02:50,570 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:02:55,519 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:03:00,666 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:03:13,372 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:03:19,166 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:03:26,149 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:03:32,008 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:03:36,780 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:03:42,104 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:04:06,292 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:04:11,227 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:04:16,421 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:04:22,430 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:04:30,415 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:04:35,325 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:04:44,538 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:05:07,027 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:05:13,533 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:05:19,747 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:05:25,007 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:05:31,223 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:05:36,594 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:05:42,286 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:05:46,691 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:05:52,198 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:05:58,576 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:06:02,670 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:06:07,181 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:06:12,681 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:06:17,356 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:06:31,565 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:06:36,841 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:06:51,317 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:06:56,493 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:07:09,233 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:07:18,335 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:07:23,755 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:07:34,273 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:07:39,269 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:07:53,167 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:07:57,514 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:08:03,149 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:08:08,418 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:08:15,586 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:08:25,783 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:08:31,324 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:08:50,805 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:08:57,407 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:09:12,107 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:09:54,790 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:10:08,904 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:10:16,318 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:10:21,567 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:10:29,726 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:10:34,200 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:10:42,168 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:10:47,266 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 18:10:52,619 - ERROR - swea-run - Traceback (most recent call last):
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/sweagent/run/run_batch.py", line 311, in run_instance
+    result = self._run_instance(instance)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/sweagent/run/run_batch.py", line 373, in _run_instance
+    self._chooks.on_instance_completed(result=result)
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/sweagent/run/hooks/abstract.py", line 67, in on_instance_completed
+    hook.on_instance_completed(result=result)
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/sweagent/run/hooks/swe_bench_evaluate.py", line 78, in on_instance_completed
+    subprocess.Popen(
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'sb-cli'
+
+2025-10-20 18:10:52,622 - ERROR - swea-run - ❌ Failed on django__django-11099: [Errno 2] No such file or directory: 'sb-cli'
