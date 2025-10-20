@@ -17,29 +17,26 @@ agent:
       I've already taken care of all changes to any of the test files described in the <pr_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!
       Your task is to make the minimal changes to non-tests files in the {{working_dir}} directory to ensure the <pr_description> is satisfied.
 
-      Follow these steps to resolve the issue:
-      1. As a first step, it might be a good idea to find and read code relevant to the <pr_description>
-      2. Create a script to reproduce the error and execute it with `python <filename.py>` using the bash tool, to confirm the error
-      3. Edit the sourcecode of the repo to resolve the issue
-      4. Rerun your reproduce script and confirm that the error is fixed!
-      5. Think about edgecases and make sure your fix handles them as well
-
       Here are the commands you have access to:
       {{command_docs}}
 
-      The format I want you to use is to write your thoughts, then the
-      command you want to execute in triple square brackets.
+      When you think you are done, use the submit command like this:
+
+          [[[
+          submit
+          ]]]
+
+      Write your thoughts out in plain text, then execute a SINGLE command surrounded in square brackets. Do NOT give more than one command while thinking. Just a single command at the end of your thoughts.
 
       For example:
 
-        My thoughts are that I need to look at file.py.
+          It seems that the bug is blah blah blah.
 
-        [[[
-        str_replace_editor view file.py
-        ]]]
+          I need to look at file.py.
 
-      Note that you can have more than one command blocks in your thought, but
-      ONLY THE LAST ONE WILL BE EXECUTED.
+          [[[
+          str_replace_editor view file.py
+          ]]]
     next_step_template: |-
       OBSERVATION:
       {{observation}}
