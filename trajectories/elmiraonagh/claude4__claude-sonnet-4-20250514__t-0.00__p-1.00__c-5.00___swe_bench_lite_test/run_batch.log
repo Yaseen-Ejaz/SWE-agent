@@ -198,3 +198,32 @@ FileNotFoundError: [Errno 2] No such file or directory: 'sb-cli'
 2025-10-20 18:54:23,280 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
 2025-10-20 18:54:28,234 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
 2025-10-20 18:54:32,702 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 19:06:44,690 - INFO - swea-run - Starting run. Find output files at /Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/trajectories/elmiraonagh/claude4__claude-sonnet-4-20250514__t-0.00__p-1.00__c-5.00___swe_bench_lite_test
+2025-10-20 19:06:44,692 - INFO - swea-run - Running on instance matplotlib__matplotlib-24970
+2025-10-20 19:07:08,423 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 19:07:13,412 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 19:07:17,982 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 19:07:22,978 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 19:07:27,865 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 19:07:38,890 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 19:07:57,213 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 19:08:05,830 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 19:08:14,317 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 19:08:20,005 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 19:08:36,447 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 19:08:42,393 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 19:08:49,777 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 19:08:55,092 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 19:09:01,696 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 19:09:15,528 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 19:09:21,262 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 19:09:29,434 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 19:09:35,005 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 19:09:40,124 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 19:09:49,485 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 19:10:13,254 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 19:10:27,011 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 19:10:32,576 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 19:10:47,882 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 19:10:53,898 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
+2025-10-20 19:10:58,704 - WARNING - swea-config - Environment variable CLAUDE_API_KEY_ROTATION not set
