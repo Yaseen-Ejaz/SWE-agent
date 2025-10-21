@@ -1,15 +1,18 @@
 {
     "total_instances": 300,
-    "submitted_instances": 8,
-    "completed_instances": 3,
-    "pending_instances": 5,
+    "submitted_instances": 10,
+    "completed_instances": 6,
+    "pending_instances": 4,
     "failed_instances": 0,
-    "resolved_instances": 3,
+    "resolved_instances": 6,
     "unresolved_instances": 0,
     "error_instances": 0,
     "completed_ids": [
         "django__django-10914",
         "django__django-11099",
+        "django__django-11133",
+        "pytest-dev__pytest-7432",
+        "scikit-learn__scikit-learn-10297",
         "sympy__sympy-12419"
     ],
     "incomplete_ids": [
@@ -185,12 +188,10 @@
         "pytest-dev__pytest-7168",
         "pytest-dev__pytest-7220",
         "pytest-dev__pytest-7373",
-        "pytest-dev__pytest-7432",
         "pytest-dev__pytest-7490",
         "pytest-dev__pytest-8365",
         "pytest-dev__pytest-8906",
         "pytest-dev__pytest-9359",
-        "scikit-learn__scikit-learn-10297",
         "scikit-learn__scikit-learn-10508",
         "scikit-learn__scikit-learn-10949",
         "scikit-learn__scikit-learn-11040",
@@ -314,6 +315,8 @@
         "django__django-11099",
         "django__django-11133",
         "matplotlib__matplotlib-24970",
+        "pytest-dev__pytest-7432",
+        "scikit-learn__scikit-learn-10297",
         "sympy__sympy-12419"
     ],
     "error_ids": [],
@@ -321,6 +324,9 @@
     "resolved_ids": [
         "django__django-10914",
         "django__django-11099",
+        "django__django-11133",
+        "pytest-dev__pytest-7432",
+        "scikit-learn__scikit-learn-10297",
         "sympy__sympy-12419"
     ],
     "unresolved_ids": [],
@@ -328,7 +334,6 @@
         "astropy__astropy-12907",
         "astropy__astropy-14182",
         "astropy__astropy-14995",
-        "django__django-11133",
         "matplotlib__matplotlib-24970"
     ],
     "failed_ids": []
