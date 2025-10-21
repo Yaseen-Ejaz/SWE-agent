@@ -1,0 +1,7 @@
+{
+    "scikit-learn__scikit-learn-10297": {
+        "model_name_or_path": "qwen3_v1__ollama--qwen3:4b__t-0.00__p-1.00__c-5.00___swe_bench_lite_test",
+        "instance_id": "scikit-learn__scikit-learn-10297",
+        "model_patch": "diff --git a/test.py b/test.py\nnew file mode 100644\nindex 000000000..a70ab5ba7\n--- /dev/null\n+++ b/test.py\n@@ -0,0 +1,8 @@\n+import numpy as np\n+from sklearn.linear_model import RidgeCV  # Note: Corrected class name (RidgeCV, not RidgeClassifierCV)\n+\n+n = 100\n+x = np.random.randn(n, 30)\n+y = np.random.normal(size=n)\n+\n+rr = RidgeCV(alphas=np.arange(0.1, 1000, 0.1))\n"
+    }
+}

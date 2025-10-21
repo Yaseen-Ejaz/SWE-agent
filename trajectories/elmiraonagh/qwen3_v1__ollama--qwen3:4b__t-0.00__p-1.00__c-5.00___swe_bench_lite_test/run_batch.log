@@ -1,0 +1,22 @@
+2025-10-21 02:18:57,788 - INFO - swea-run - Starting run. Find output files at /Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/trajectories/elmiraonagh/qwen3_v1__ollama--qwen3:4b__t-0.00__p-1.00__c-5.00___swe_bench_lite_test
+2025-10-21 02:18:57,789 - INFO - swea-run - Running on instance astropy__astropy-14182
+2025-10-21 08:30:41,864 - INFO - swea-run - Stopping loop over instances
+2025-10-21 08:43:07,580 - INFO - swea-run - Starting run. Find output files at /Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/trajectories/elmiraonagh/qwen3_v1__ollama--qwen3:4b__t-0.00__p-1.00__c-5.00___swe_bench_lite_test
+2025-10-21 08:43:07,582 - INFO - swea-run - Running on instance scikit-learn__scikit-learn-10297
+2025-10-21 09:28:11,077 - ERROR - swea-run - Traceback (most recent call last):
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/run_batch.py", line 311, in run_instance
+    result = self._run_instance(instance)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/run_batch.py", line 373, in _run_instance
+    self._chooks.on_instance_completed(result=result)
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/hooks/abstract.py", line 67, in on_instance_completed
+    hook.on_instance_completed(result=result)
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/hooks/swe_bench_evaluate.py", line 78, in on_instance_completed
+    subprocess.Popen(
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'sb-cli'
+
+2025-10-21 09:28:11,081 - ERROR - swea-run - ❌ Failed on scikit-learn__scikit-learn-10297: [Errno 2] No such file or directory: 'sb-cli'
