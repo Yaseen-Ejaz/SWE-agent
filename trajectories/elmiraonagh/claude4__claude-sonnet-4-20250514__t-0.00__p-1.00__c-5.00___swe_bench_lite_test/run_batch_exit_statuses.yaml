@@ -1,4 +1,4 @@
 instances_by_exit_status:
     submitted:
-    - matplotlib__matplotlib-24970
-total_cost: 0.31018274999999995
+    - django__django-10914
+total_cost: 1.0917944999999998

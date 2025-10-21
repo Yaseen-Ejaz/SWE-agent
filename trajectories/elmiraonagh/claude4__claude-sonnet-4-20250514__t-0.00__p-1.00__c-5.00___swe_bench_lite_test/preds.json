@@ -1,7 +1,7 @@
 {
-    "matplotlib__matplotlib-24970": {
+    "django__django-10914": {
         "model_name_or_path": "claude4__claude-sonnet-4-20250514__t-0.00__p-1.00__c-5.00___swe_bench_lite_test",
-        "instance_id": "matplotlib__matplotlib-24970",
-        "model_patch": "diff --git a/lib/matplotlib/colors.py b/lib/matplotlib/colors.py\nindex 2d3072da04..f1025bd836 100644\n--- a/lib/matplotlib/colors.py\n+++ b/lib/matplotlib/colors.py\n@@ -727,9 +727,9 @@ class Colormap:\n                 xa = xa.astype(int)\n         # Set the over-range indices before the under-range;\n         # otherwise the under-range values get converted to over-range.\n-        xa[xa > self.N - 1] = self._i_over\n-        xa[xa < 0] = self._i_under\n-        xa[mask_bad] = self._i_bad\n+        xa[xa > self.N - 1] = np.array(self._i_over).astype(xa.dtype)\n+        xa[xa < 0] = np.array(self._i_under).astype(xa.dtype)\n+        xa[mask_bad] = np.array(self._i_bad).astype(xa.dtype)\n \n         lut = self._lut\n         if bytes:\n"
+        "instance_id": "django__django-10914",
+        "model_patch": "diff --git a/django/conf/global_settings.py b/django/conf/global_settings.py\nindex acee9887d2..bdeec80610 100644\n--- a/django/conf/global_settings.py\n+++ b/django/conf/global_settings.py\n@@ -304,7 +304,7 @@ FILE_UPLOAD_TEMP_DIR = None\n \n # The numeric mode to set newly-uploaded files to. The value should be a mode\n # you'd pass directly to os.chmod; see https://docs.python.org/library/os.html#files-and-directories.\n-FILE_UPLOAD_PERMISSIONS = None\n+FILE_UPLOAD_PERMISSIONS = 0o644\n \n # The numeric mode to assign to newly-created directories, when uploading files.\n # The value should be a mode as you'd pass to os.chmod;\n"
     }
 }
