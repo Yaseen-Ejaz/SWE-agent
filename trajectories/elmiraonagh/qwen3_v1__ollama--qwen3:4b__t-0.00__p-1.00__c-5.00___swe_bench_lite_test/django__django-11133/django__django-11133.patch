@@ -1,0 +1,7 @@
+diff --git a/test_memoryview.py b/test_memoryview.py
+new file mode 100644
+index 0000000000..d2dbbb721b
+--- /dev/null
++++ b/test_memoryview.py
+@@ -0,0 +1 @@
++from django.http import HttpResponse\nresponse = HttpResponse(b'Hello')\nprint(response.content)
