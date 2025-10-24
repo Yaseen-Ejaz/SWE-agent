@@ -1,0 +1,379 @@
+﻿instance_id,instance_cost_org,tokens_sent_org,tokens_received_org,api_calls_org,patch_org,instance_cost_rep,tokens_sent_rep,tokens_received_rep,api_calls_rep,start_time_rep,finish_time_rep,patch_rep
+astropy__astropy-12907,0.900303,38214,1578,48,"diff --git a/astropy/modeling/separable.py b/astropy/modeling/separable.py\nindex a308e27297..45bea36085 100644\n--- a/astropy/modeling/separable.py\n+++ b/astropy/modeling/separable.py\n@@ -242,7 +242,7 @@ def _cstack(left, right):\n         cright = _coord_matrix(right, 'right', noutp)\n     else:\n         cright = np.zeros((noutp, right.shape[1]))\n-        cright[-right.shape[0]:, -right.shape[1]:] = 1\n+        cright[-right.shape[0]:, -right.shape[1]:] = right\n \n     return np.hstack([cleft, cright])\n \ndiff --git a/pyproject.toml b/pyproject.toml\nindex 3364d30740..02dddbe713 100644\n--- a/pyproject.toml\n+++ b/pyproject.toml\n@@ -1,5 +1,5 @@\n [build-system]\n-requires = [\""setuptools\"",\n+requires = [\""setuptools==68.0.0\"",\n             \""setuptools_scm>=6.2\"",\n             \""wheel\"",\n             \""cython==0.29.22\"",\n",0.60099675,764258,1435,37,"2025-10-20 19:34:28,695","2025-10-20 19:40:14,919 ","diff --git a/astropy/modeling/separable.py b/astropy/modeling/separable.py
+index a308e2729..45bea3608 100644
+--- a/astropy/modeling/separable.py
++++ b/astropy/modeling/separable.py
+@@ -242,7 +242,7 @@ def _cstack(left, right):
+         cright = _coord_matrix(right, 'right', noutp)
+     else:
+         cright = np.zeros((noutp, right.shape[1]))
+-        cright[-right.shape[0]:, -right.shape[1]:] = 1
++        cright[-right.shape[0]:, -right.shape[1]:] = right
+ 
+     return np.hstack([cleft, cright])
+ 
+diff --git a/astropy/modeling/tests/test_separable.py b/astropy/modeling/tests/test_separable.py
+index 8dfe5c862..aebdee56a 100644
+--- a/astropy/modeling/tests/test_separable.py
++++ b/astropy/modeling/tests/test_separable.py
+@@ -148,3 +148,53 @@ def test_custom_model_separable():
+ 
+     assert not model_c().separable
+     assert np.all(separability_matrix(model_c()) == [True, True])
++
++
++def test_nested_compound_separability():
++    """"""
++    Regression test for nested CompoundModel separability matrix computation.
++    
++    This test ensures that nested compound models produce the same separability
++    matrix as their non-nested equivalents.
++    
++    See: https://github.com/astropy/astropy/issues/XXXX
++    """"""
++    # Test the original issue from the PR description
++    cm = models.Linear1D(10) & models.Linear1D(5)
++    nested_model = models.Pix2Sky_TAN() & cm
++    non_nested_model = models.Pix2Sky_TAN() & models.Linear1D(10) & models.Linear1D(5)
++    
++    nested_result = separability_matrix(nested_model)
++    non_nested_result = separability_matrix(non_nested_model)
++    
++    expected = np.array([
++        [True,  True, False, False],
++        [True,  True, False, False],
++        [False, False, True, False],
++        [False, False, False, True]
++    ])
++    
++    assert_allclose(nested_result, expected)
++    assert_allclose(non_nested_result, expected)
++    assert_allclose(nested_result, non_nested_result)
++    
++    # Test additional cases to ensure robustness
++    # Both sides nested
++    cm1 = models.Linear1D(1) & models.Linear1D(2)
++    cm2 = models.Scale(3) & models.Scale(4)
++    both_nested = cm1 & cm2
++    non_nested_both = models.Linear1D(1) & models.Linear1D(2) & models.Scale(3) & models.Scale(4)
++    
++    both_nested_result = separability_matrix(both_nested)
++    non_nested_both_result = separability_matrix(non_nested_both)
++    
++    expected_both = np.array([
++        [True, False, False, False],
++        [False, True, False, False],
++        [False, False, True, False],
++        [False, False, False, True]
++    ])
++    
++    assert_allclose(both_nested_result, expected_both)
++    assert_allclose(non_nested_both_result, expected_both)
++    assert_allclose(both_nested_result, non_nested_both_result)"
+astropy__astropy-14182,0.71303505,22600,1980,56,"diff --git a/astropy/io/ascii/rst.py b/astropy/io/ascii/rst.py\nindex abdeba8efb..54c4d31cda 100644\n--- a/astropy/io/ascii/rst.py\n+++ b/astropy/io/ascii/rst.py\n@@ -57,10 +57,29 @@ class RST(FixedWidth):\n     data_class = SimpleRSTData\n     header_class = SimpleRSTHeader\n \n-    def __init__(self):\n-        super().__init__(delimiter_pad=None, bookend=False)\n+    def __init__(self, header_rows=None):\n+        super().__init__(delimiter_pad=None, bookend=False, header_rows=header_rows)\n \n     def write(self, lines):\n         lines = super().write(lines)\n-        lines = [lines[1]] + lines + [lines[1]]\n+        \n+        # Find the position line (separator line with \""=\"" characters)\n+        # This should be the line that contains only \""=\"" and spaces\n+        separator_line_idx = None\n+        for i, line in enumerate(lines):\n+            if line and set(line.strip()) <= {'=', ' '} and '=' in line:\n+                separator_line_idx = i\n+                break\n+        \n+        if separator_line_idx is not None:\n+            separator_line = lines[separator_line_idx]\n+            # For RST format, we need separator lines at:\n+            # 1. Beginning\n+            # 2. After all header rows (where the position line currently is)\n+            # 3. End\n+            lines = [separator_line] + lines + [separator_line]\n+        else:\n+            # Fallback to original behavior if no separator line found\n+            lines = [lines[1]] + lines + [lines[1]]\n+        \n         return lines\ndiff --git a/pyproject.toml b/pyproject.toml\nindex 0d1ee66ab9..ec234472e2 100644\n--- a/pyproject.toml\n+++ b/pyproject.toml\n@@ -1,5 +1,5 @@\n [build-system]\n-requires = [\""setuptools\"",\n+requires = [\""setuptools==68.0.0\"",\n             \""setuptools_scm>=6.2\"",\n             \""wheel\"",\n             \""cython==0.29.30\"",\n",0.59695635,820716,2151,51,"2025-10-20 18:26:41,941 ","2025-10-20 18:33:01,698","diff --git a/astropy/io/ascii/rst.py b/astropy/io/ascii/rst.py
+index abdeba8ef..7ee4c479b 100644
+--- a/astropy/io/ascii/rst.py
++++ b/astropy/io/ascii/rst.py
+@@ -57,10 +57,21 @@ class RST(FixedWidth):
+     data_class = SimpleRSTData
+     header_class = SimpleRSTHeader
+ 
+-    def __init__(self):
+-        super().__init__(delimiter_pad=None, bookend=False)
++    def __init__(self, header_rows=None):
++        super().__init__(delimiter_pad=None, bookend=False, header_rows=header_rows)
+ 
+     def write(self, lines):
+         lines = super().write(lines)
+-        lines = [lines[1]] + lines + [lines[1]]
++        # Find the separator line (the line with position_char characters)
++        # It should be after all header rows
++        default_header_rows = [] if self.header.start_line is None else [""name""]
++        header_rows = getattr(self.data, ""header_rows"", default_header_rows)
++        separator_line_index = len(header_rows)
++        
++        if separator_line_index < len(lines):
++            separator_line = lines[separator_line_index]
++            lines = [separator_line] + lines + [separator_line]
++        else:
++            # Fallback to old behavior if something goes wrong
++            lines = [lines[1]] + lines + [lines[1]]
+         return lines"
+astropy__astropy-14995,0.9906138,41812,1715,54,"diff --git a/src/_pytest/_code/source.py b/src/_pytest/_code/source.py
+index 6f54057c0..36bdd8ee6 100644
+--- a/src/_pytest/_code/source.py
++++ b/src/_pytest/_code/source.py
+@@ -149,7 +149,13 @@ def get_statement_startend2(lineno: int, node: ast.AST) -> Tuple[int, Optional[i
+     values: List[int] = []
+     for x in ast.walk(node):
+         if isinstance(x, (ast.stmt, ast.ExceptHandler)):
+-            values.append(x.lineno - 1)
++            # For statements with decorators, use the first decorator's line number
++            # instead of the statement's line number
++            if hasattr(x, 'decorator_list') and x.decorator_list:
++                stmt_lineno = x.decorator_list[0].lineno - 1
++            else:
++                stmt_lineno = x.lineno - 1
++            values.append(stmt_lineno)
+             for name in (""finalbody"", ""orelse""):
+                 val: Optional[List[ast.stmt]] = getattr(x, name, None)
+                 if val:",0.67301055,955122,1759,45,"2025-10-20 19:53:30,199 ","2025-10-20 20:00:48,929","diff --git a/astropy/nddata/mixins/ndarithmetic.py b/astropy/nddata/mixins/ndarithmetic.py
+index 4153dfccb..e3a3d4fe0 100644
+--- a/astropy/nddata/mixins/ndarithmetic.py
++++ b/astropy/nddata/mixins/ndarithmetic.py
+@@ -522,6 +522,9 @@ class NDArithmeticMixin:
+             return deepcopy(operand.mask)
+         elif operand is None:
+             return deepcopy(self.mask)
++        elif operand is not None and operand.mask is None:
++            # operand has no mask, so return a copy of self.mask
++            return deepcopy(self.mask)
+         else:
+             # Now lets calculate the resulting mask (operation enforces copy)
+             return handle_mask(self.mask, operand.mask, **kwds)"
+django__django-10914,1.03651125,32787,2500,53,"diff --git a/django/conf/global_settings.py b/django/conf/global_settings.py\nindex acee9887d2..bdeec80610 100644\n--- a/django/conf/global_settings.py\n+++ b/django/conf/global_settings.py\n@@ -304,7 +304,7 @@ FILE_UPLOAD_TEMP_DIR = None\n \n # The numeric mode to set newly-uploaded files to. The value should be a mode\n # you'd pass directly to os.chmod; see https://docs.python.org/library/os.html#files-and-directories.\n-FILE_UPLOAD_PERMISSIONS = None\n+FILE_UPLOAD_PERMISSIONS = 0o644\n \n # The numeric mode to assign to newly-created directories, when uploading files.\n # The value should be a mode as you'd pass to os.chmod;\n",1.0917945,1622481,1919,58,"2025-10-20 20:09:40,727","2025-10-20 20:17:31,106","diff --git a/django/conf/global_settings.py b/django/conf/global_settings.py
+index acee9887d2..bdeec80610 100644
+--- a/django/conf/global_settings.py
++++ b/django/conf/global_settings.py
+@@ -304,7 +304,7 @@ FILE_UPLOAD_TEMP_DIR = None
+ 
+ # The numeric mode to set newly-uploaded files to. The value should be a mode
+ # you'd pass directly to os.chmod; see https://docs.python.org/library/os.html#files-and-directories.
+-FILE_UPLOAD_PERMISSIONS = None
++FILE_UPLOAD_PERMISSIONS = 0o644
+ 
+ # The numeric mode to assign to newly-created directories, when uploading files.
+ # The value should be a mode as you'd pass to os.chmod;"
+django__django-11099,1.191213,39296,2064,58,"diff --git a/django/contrib/auth/validators.py b/django/contrib/auth/validators.py\nindex b4878cfd45..1304f20a60 100644\n--- a/django/contrib/auth/validators.py\n+++ b/django/contrib/auth/validators.py\n@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _\n \n @deconstructible\n class ASCIIUsernameValidator(validators.RegexValidator):\n-    regex = r'^[\\w.@+-]+$'\n+    regex = r'\\A[\\w.@+-]+\\Z'\n     message = _(\n         'Enter a valid username. This value may contain only English letters, '\n         'numbers, and @/./+/-/_ characters.'\n@@ -17,7 +17,7 @@ class ASCIIUsernameValidator(validators.RegexValidator):\n \n @deconstructible\n class UnicodeUsernameValidator(validators.RegexValidator):\n-    regex = r'^[\\w.@+-]+$'\n+    regex = r'\\A[\\w.@+-]+\\Z'\n     message = _(\n         'Enter a valid username. This value may contain only letters, '\n         'numbers, and @/./+/-/_ characters.'\n",0.9622965,1520534,2290,58,"2025-10-20 18:02:24,003","2025-10-20 18:10:52,608","diff --git a/django/contrib/auth/validators.py b/django/contrib/auth/validators.py
+index b4878cfd45..1304f20a60 100644
+--- a/django/contrib/auth/validators.py
++++ b/django/contrib/auth/validators.py
+@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
+ 
+ @deconstructible
+ class ASCIIUsernameValidator(validators.RegexValidator):
+-    regex = r'^[\w.@+-]+$'
++    regex = r'\A[\w.@+-]+\Z'
+     message = _(
+         'Enter a valid username. This value may contain only English letters, '
+         'numbers, and @/./+/-/_ characters.'
+@@ -17,7 +17,7 @@ class ASCIIUsernameValidator(validators.RegexValidator):
+ 
+ @deconstructible
+ class UnicodeUsernameValidator(validators.RegexValidator):
+-    regex = r'^[\w.@+-]+$'
++    regex = r'\A[\w.@+-]+\Z'
+     message = _(
+         'Enter a valid username. This value may contain only letters, '
+         'numbers, and @/./+/-/_ characters.'"
+django__django-11133,0.83124765,24938,2176,55,"diff --git a/django/http/response.py b/django/http/response.py\nindex 6a84e193ba..b477b42322 100644\n--- a/django/http/response.py\n+++ b/django/http/response.py\n@@ -233,9 +233,23 @@ class HttpResponseBase:\n             return bytes(value)\n         if isinstance(value, str):\n             return bytes(value.encode(self.charset))\n+        # Handle objects that support the buffer protocol (e.g., memoryview, bytearray)\n+        try:\n+            memoryview(value)\n+            return bytes(value)\n+        except TypeError:\n+            pass\n         # Handle non-string types.\n         return str(value).encode(self.charset)\n \n+    def _supports_buffer_protocol(self, value):\n+        \""\""\""Check if the value supports the buffer protocol.\""\""\""\n+        try:\n+            memoryview(value)\n+            return True\n+        except TypeError:\n+            return False\n+\n     # These methods partially implement the file-like object interface.\n     # See https://docs.python.org/library/io.html#io.IOBase\n \n@@ -309,7 +323,7 @@ class HttpResponse(HttpResponseBase):\n     @content.setter\n     def content(self, value):\n         # Consume iterators upon assignment to allow repeated iteration.\n-        if hasattr(value, '__iter__') and not isinstance(value, (bytes, str)):\n+        if hasattr(value, '__iter__') and not isinstance(value, (bytes, str)) and not self._supports_buffer_protocol(value):\n             content = b''.join(self.make_bytes(chunk) for chunk in value)\n             if hasattr(value, 'close'):\n                 try:\n",0.53859555,780577,1408,51,"2025-10-20 18:48:00,719 ","2025-10-20 18:54:37,710","diff --git a/django/http/response.py b/django/http/response.py
+index 6a84e193ba..3dd6b1caed 100644
+--- a/django/http/response.py
++++ b/django/http/response.py
+@@ -233,6 +233,9 @@ class HttpResponseBase:
+             return bytes(value)
+         if isinstance(value, str):
+             return bytes(value.encode(self.charset))
++        # Handle memoryview objects.
++        if isinstance(value, memoryview):
++            return bytes(value)
+         # Handle non-string types.
+         return str(value).encode(self.charset)
+ 
+diff --git a/tests/responses/tests.py b/tests/responses/tests.py
+index 934e4dfe60..52d5050f01 100644
+--- a/tests/responses/tests.py
++++ b/tests/responses/tests.py
+@@ -154,3 +154,28 @@ class HttpResponseTests(SimpleTestCase):
+         cache.set('my-response-key', response)
+         response = cache.get('my-response-key')
+         self.assertEqual(response.content, b'0123456789')
++
++    def test_memoryview_content(self):
++        """"""HttpResponse should handle memoryview objects correctly.""""""
++        # Test basic memoryview
++        content = b'Hello World'
++        mv = memoryview(content)
++        response = HttpResponse(mv)
++        self.assertEqual(response.content, content)
++        
++        # Test memoryview from bytearray
++        ba = bytearray(b'Hello ByteArray')
++        mv_ba = memoryview(ba)
++        response = HttpResponse(mv_ba)
++        self.assertEqual(response.content, b'Hello ByteArray')
++        
++        # Test empty memoryview
++        empty_mv = memoryview(b'')
++        response = HttpResponse(empty_mv)
++        self.assertEqual(response.content, b'')
++        
++        # Test memoryview slice
++        original = b'Hello World'
++        mv_slice = memoryview(original)[6:]  # ""World""
++        response = HttpResponse(mv_slice)
++        self.assertEqual(response.content, b'World')"
+matplotlib__matplotlib-24970,0.607827,28137,1594,39,"diff --git a/lib/matplotlib/colors.py b/lib/matplotlib/colors.py\nindex 2d3072da04..f1025bd836 100644\n--- a/lib/matplotlib/colors.py\n+++ b/lib/matplotlib/colors.py\n@@ -727,9 +727,9 @@ class Colormap:\n                 xa = xa.astype(int)\n         # Set the over-range indices before the under-range;\n         # otherwise the under-range values get converted to over-range.\n-        xa[xa > self.N - 1] = self._i_over\n-        xa[xa < 0] = self._i_under\n-        xa[mask_bad] = self._i_bad\n+        xa[xa > self.N - 1] = np.array(self._i_over).astype(xa.dtype)\n+        xa[xa < 0] = np.array(self._i_under).astype(xa.dtype)\n+        xa[mask_bad] = np.array(self._i_bad).astype(xa.dtype)\n \n         lut = self._lut\n         if bytes:\n",0.31018275,298294,1673,27,"2025-10-20 19:06:47,740 ","2025-10-20 19:11:04,144 ","diff --git a/lib/matplotlib/colors.py b/lib/matplotlib/colors.py
+index 2d3072da04..f1025bd836 100644
+--- a/lib/matplotlib/colors.py
++++ b/lib/matplotlib/colors.py
+@@ -727,9 +727,9 @@ class Colormap:
+                 xa = xa.astype(int)
+         # Set the over-range indices before the under-range;
+         # otherwise the under-range values get converted to over-range.
+-        xa[xa > self.N - 1] = self._i_over
+-        xa[xa < 0] = self._i_under
+-        xa[mask_bad] = self._i_bad
++        xa[xa > self.N - 1] = np.array(self._i_over).astype(xa.dtype)
++        xa[xa < 0] = np.array(self._i_under).astype(xa.dtype)
++        xa[mask_bad] = np.array(self._i_bad).astype(xa.dtype)
+ 
+         lut = self._lut
+         if bytes:"
+pytest-dev__pytest-7432,0.8279835,27994,3592,47,"diff --git a/src/_pytest/skipping.py b/src/_pytest/skipping.py\nindex 7bd975e5a..d0051ef3c 100644\n--- a/src/_pytest/skipping.py\n+++ b/src/_pytest/skipping.py\n@@ -270,13 +270,11 @@ def pytest_runtest_makereport(item: Item, call: CallInfo[None]):\n         else:\n             rep.longrepr = \""Unexpected success\""\n         rep.outcome = \""failed\""\n-    elif item.config.option.runxfail:\n-        pass  # don't interfere\n-    elif call.excinfo and isinstance(call.excinfo.value, xfail.Exception):\n+    elif not item.config.option.runxfail and call.excinfo and isinstance(call.excinfo.value, xfail.Exception):\n         assert call.excinfo.value.msg is not None\n         rep.wasxfail = \""reason: \"" + call.excinfo.value.msg\n         rep.outcome = \""skipped\""\n-    elif not rep.skipped and xfailed:\n+    elif not item.config.option.runxfail and not rep.skipped and xfailed:\n         if call.excinfo:\n             raises = xfailed.raises\n             if raises is not None and not isinstance(call.excinfo.value, raises):\n@@ -291,7 +289,9 @@ def pytest_runtest_makereport(item: Item, call: CallInfo[None]):\n             else:\n                 rep.outcome = \""passed\""\n                 rep.wasxfail = xfailed.reason\n-    elif (\n+    \n+    # Fix skip location regardless of --runxfail\n+    if (\n         item._store.get(skipped_by_mark_key, True)\n         and rep.skipped\n         and type(rep.longrepr) is tuple\n",0.67149015,817665,3513,40,"2025-10-20 20:22:13,116 ","2025-10-20 20:28:40,407","diff --git a/src/_pytest/skipping.py b/src/_pytest/skipping.py
+index 7bd975e5a..128fb35c9 100644
+--- a/src/_pytest/skipping.py
++++ b/src/_pytest/skipping.py
+@@ -270,28 +270,30 @@ def pytest_runtest_makereport(item: Item, call: CallInfo[None]):
+         else:
+             rep.longrepr = ""Unexpected success""
+         rep.outcome = ""failed""
+-    elif item.config.option.runxfail:
+-        pass  # don't interfere
+-    elif call.excinfo and isinstance(call.excinfo.value, xfail.Exception):
+-        assert call.excinfo.value.msg is not None
+-        rep.wasxfail = ""reason: "" + call.excinfo.value.msg
+-        rep.outcome = ""skipped""
+-    elif not rep.skipped and xfailed:
+-        if call.excinfo:
+-            raises = xfailed.raises
+-            if raises is not None and not isinstance(call.excinfo.value, raises):
+-                rep.outcome = ""failed""
+-            else:
+-                rep.outcome = ""skipped""
+-                rep.wasxfail = xfailed.reason
+-        elif call.when == ""call"":
+-            if xfailed.strict:
+-                rep.outcome = ""failed""
+-                rep.longrepr = ""[XPASS(strict)] "" + xfailed.reason
+-            else:
+-                rep.outcome = ""passed""
+-                rep.wasxfail = xfailed.reason
+-    elif (
++    elif not item.config.option.runxfail:
++        # Only do xfail processing when --runxfail is not used
++        if call.excinfo and isinstance(call.excinfo.value, xfail.Exception):
++            assert call.excinfo.value.msg is not None
++            rep.wasxfail = ""reason: "" + call.excinfo.value.msg
++            rep.outcome = ""skipped""
++        elif not rep.skipped and xfailed:
++            if call.excinfo:
++                raises = xfailed.raises
++                if raises is not None and not isinstance(call.excinfo.value, raises):
++                    rep.outcome = ""failed""
++                else:
++                    rep.outcome = ""skipped""
++                    rep.wasxfail = xfailed.reason
++            elif call.when == ""call"":
++                if xfailed.strict:
++                    rep.outcome = ""failed""
++                    rep.longrepr = ""[XPASS(strict)] "" + xfailed.reason
++                else:
++                    rep.outcome = ""passed""
++                    rep.wasxfail = xfailed.reason
++    
++    # Handle skip location correction regardless of --runxfail
++    if (
+         item._store.get(skipped_by_mark_key, True)
+         and rep.skipped
+         and type(rep.longrepr) is tuple"
+scikit-learn__scikit-learn-10297,0.83651055,25272,1640,55,"diff --git a/sympy/utilities/lambdify.py b/sympy/utilities/lambdify.py
+index f71bea25f5..cec161d513 100644
+--- a/sympy/utilities/lambdify.py
++++ b/sympy/utilities/lambdify.py
+@@ -738,6 +738,23 @@ def _preprocess(self, args, expr):
+                 dummy = Dummy()
+                 argstrs.append(self._argrepr(dummy))
+                 expr = self._subexpr(expr, {arg: dummy})
++            elif hasattr(arg, 'name'):
++                # Handle objects with name attribute (like MatrixSymbol)
++                argrep = self._argrepr(arg)
++
++                if dummify or not self._is_safe_ident(argrep):
++                    # Create appropriate dummy based on the argument type
++                    if hasattr(arg, 'shape'):
++                        # For MatrixSymbol and similar objects, create a MatrixSymbol with dummy name
++                        from sympy.matrices.expressions import MatrixSymbol
++                        dummy = MatrixSymbol(Dummy().name, *arg.shape)
++                    else:
++                        # For other objects with name attribute, use regular Dummy
++                        dummy = Dummy()
++                    argstrs.append(self._argrepr(dummy))
++                    expr = self._subexpr(expr, {arg: dummy})
++                else:
++                    argstrs.append(argrep)
+             else:
+                 argstrs.append(str(arg))
+ ",0.8854974,1330426,1952,64,"2025-10-20 20:33:22,417 ","2025-10-20 20:41:37,139","diff --git a/sklearn/linear_model/ridge.py b/sklearn/linear_model/ridge.py
+index 911c74ae3..06e968cd8 100644
+--- a/sklearn/linear_model/ridge.py
++++ b/sklearn/linear_model/ridge.py
+@@ -1301,6 +1301,26 @@ class RidgeClassifierCV(LinearClassifierMixin, _BaseRidgeCV):
+         weights inversely proportional to class frequencies in the input data
+         as ``n_samples / (n_classes * np.bincount(y))``
+ 
++    gcv_mode : {None, 'auto', 'svd', eigen'}, optional
++        Flag indicating which strategy to use when performing
++        Generalized Cross-Validation. Options are::
++
++            'auto' : use svd if n_samples > n_features or when X is a sparse
++                     matrix, otherwise use eigen
++            'svd' : force computation via singular value decomposition of X
++                    (does not work for sparse matrices)
++            'eigen' : force computation via eigendecomposition of X^T X
++
++        The 'auto' mode is the default and is intended to pick the cheaper
++        option of the two depending upon the shape and format of the training
++        data.
++
++    store_cv_values : boolean, default=False
++        Flag indicating if the cross-validation values corresponding to
++        each alpha should be stored in the `cv_values_` attribute (see
++        below). This flag is only compatible with `cv=None` (i.e. using
++        Generalized Cross-Validation).
++
+     Attributes
+     ----------
+     cv_values_ : array, shape = [n_samples, n_alphas] or \
+@@ -1333,10 +1353,12 @@ class RidgeClassifierCV(LinearClassifierMixin, _BaseRidgeCV):
+     advantage of the multi-variate response support in Ridge.
+     """"""
+     def __init__(self, alphas=(0.1, 1.0, 10.0), fit_intercept=True,
+-                 normalize=False, scoring=None, cv=None, class_weight=None):
++                 normalize=False, scoring=None, cv=None, class_weight=None,
++                 gcv_mode=None, store_cv_values=False):
+         super(RidgeClassifierCV, self).__init__(
+             alphas=alphas, fit_intercept=fit_intercept, normalize=normalize,
+-            scoring=scoring, cv=cv)
++            scoring=scoring, cv=cv, gcv_mode=gcv_mode,
++            store_cv_values=store_cv_values)
+         self.class_weight = class_weight
+ 
+     def fit(self, X, y, sample_weight=None):"
+sympy__sympy-12419,2.1965829,59593,4096,89,"diff --git a/sympy/concrete/summations.py b/sympy/concrete/summations.py\nindex 372487664c..c4154dc8c8 100644\n--- a/sympy/concrete/summations.py\n+++ b/sympy/concrete/summations.py\n@@ -876,6 +876,48 @@ def eval_sum(f, limits):\n     if definite and (dif < 100):\n         return eval_sum_direct(f, (i, a, b))\n     if isinstance(f, Piecewise):\n+        # Check if any piece has a condition that exactly matches the summation range\n+        from sympy.logic.boolalg import And\n+        from sympy.core.relational import GreaterThan, LessThan\n+        \n+        for expr, cond in f.args:\n+            if cond == True:\n+                # This is the default case, skip it for now\n+                continue\n+            \n+            # Check if condition is of the form (a <= i) & (i <= b) where a, b match our limits\n+            if isinstance(cond, And) and len(cond.args) == 2:\n+                cond1, cond2 = cond.args\n+                \n+                # Try both orders: (a <= i) & (i <= b) or (i >= a) & (i <= b)\n+                if (isinstance(cond1, (GreaterThan, LessThan)) and \n+                    isinstance(cond2, (GreaterThan, LessThan))):\n+                    \n+                    # Extract the variable and bounds from the conditions\n+                    var1, bound1 = None, None\n+                    var2, bound2 = None, None\n+                    \n+                    if isinstance(cond1, GreaterThan):  # i >= a\n+                        if cond1.lhs == i:\n+                            var1, bound1 = i, cond1.rhs\n+                    elif isinstance(cond1, LessThan):  # a <= i\n+                        if cond1.rhs == i:\n+                            var1, bound1 = i, cond1.lhs\n+                    \n+                    if isinstance(cond2, LessThan):  # i <= b\n+                        if cond2.lhs == i:\n+                            var2, bound2 = i, cond2.rhs\n+                    elif isinstance(cond2, GreaterThan):  # b >= i\n+                        if cond2.rhs == i:\n+                            var2, bound2 = i, cond2.lhs\n+                    \n+                    # Check if the bounds match our summation limits\n+                    if (var1 == i and var2 == i and \n+                        bound1 == a and bound2 == b):\n+                        # The condition exactly matches the summation range\n+                        # So we can sum the expression directly\n+                        return eval_sum(expr, limits)\n+        \n         return None\n     # Try to do it symbolically. Even when the number of terms is known,\n     # this can save time when b-a is big.\ndiff --git a/sympy/matrices/expressions/matexpr.py b/sympy/matrices/expressions/matexpr.py\nindex b4d759836e..cd6770d69b 100644\n--- a/sympy/matrices/expressions/matexpr.py\n+++ b/sympy/matrices/expressions/matexpr.py\n@@ -476,10 +476,8 @@ def conjugate(self):\n         return self\n \n     def _entry(self, i, j):\n-        if i == j:\n-            return S.One\n-        else:\n-            return S.Zero\n+        from sympy import KroneckerDelta\n+        return KroneckerDelta(i, j)\n \n     def _eval_determinant(self):\n         return S.One\n",0.80101485,1130143,2554,68,"2025-10-20 19:14:45,710 ","2025-10-20 19:23:47,790 ","diff --git a/sympy/matrices/expressions/matexpr.py b/sympy/matrices/expressions/matexpr.py
+index b4d759836..cd6770d69 100644
+--- a/sympy/matrices/expressions/matexpr.py
++++ b/sympy/matrices/expressions/matexpr.py
+@@ -476,10 +476,8 @@ def conjugate(self):
+         return self
+ 
+     def _entry(self, i, j):
+-        if i == j:
+-            return S.One
+-        else:
+-            return S.Zero
++        from sympy import KroneckerDelta
++        return KroneckerDelta(i, j)
+ 
+     def _eval_determinant(self):
+         return S.One"
