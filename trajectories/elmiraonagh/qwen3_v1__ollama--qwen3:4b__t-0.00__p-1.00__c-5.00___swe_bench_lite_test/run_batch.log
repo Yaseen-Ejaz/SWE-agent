@@ -187,3 +187,45 @@ swerex.exceptions.CommandTimeoutError: timeout after 300.0 seconds while running
 FileNotFoundError: [Errno 2] No such file or directory: 'sb-cli'
 
 2025-10-22 16:33:38,653 - ERROR - swea-run - ❌ Failed on astropy__astropy-12907: [Errno 2] No such file or directory: 'sb-cli'
+2025-10-24 15:39:51,510 - INFO - swea-run - Starting run. Find output files at /Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/trajectories/elmiraonagh/qwen3_v1__ollama--qwen3:4b__t-0.00__p-1.00__c-5.00___swe_bench_lite_test
+2025-10-24 15:39:51,512 - INFO - swea-run - Running on instance django__django-11099
+2025-10-24 15:39:51,988 - ERROR - swea-run - Traceback (most recent call last):
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/myenv/lib/python3.11/site-packages/swerex/deployment/docker.py", line 143, in _pull_image
+    _pull_image(self._config.image, self._config.container_runtime)
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/myenv/lib/python3.11/site-packages/swerex/deployment/docker.py", line 42, in _pull_image
+    raise subprocess.CalledProcessError(e.returncode, e.cmd, e.output, e.stderr) from None
+subprocess.CalledProcessError: Command '['docker', 'pull', 'docker.io/swebench/sweb.eval.x86_64.django_1776_django-11099:latest']' returned non-zero exit status 1.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/run_batch.py", line 311, in run_instance
+    result = self._run_instance(instance)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/run_batch.py", line 358, in _run_instance
+    env.start()
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/environment/swe_env.py", line 111, in start
+    self._init_deployment()
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/environment/swe_env.py", line 183, in _init_deployment
+    asyncio.run(self.deployment.start())
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/myenv/lib/python3.11/site-packages/swerex/deployment/docker.py", line 232, in start
+    self._pull_image()
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/myenv/lib/python3.11/site-packages/swerex/deployment/docker.py", line 148, in _pull_image
+    raise DockerPullError(msg) from e
+swerex.exceptions.DockerPullError: Failed to pull image docker.io/swebench/sweb.eval.x86_64.django_1776_django-11099:latest. Error: Cannot connect to the Docker daemon at unix:///Users/elmiraonagh/.docker/run/docker.sock. Is the docker daemon running?
+Output: 
+
+2025-10-24 15:39:51,994 - ERROR - swea-run - ❌ Failed on django__django-11099: Failed to pull image docker.io/swebench/sweb.eval.x86_64.django_1776_django-11099:latest. Error: Cannot connect to the Docker daemon at unix:///Users/elmiraonagh/.docker/run/docker.sock. Is the docker daemon running?
+Output: 
+2025-10-24 15:40:40,776 - INFO - swea-run - Starting run. Find output files at /Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/trajectories/elmiraonagh/qwen3_v1__ollama--qwen3:4b__t-0.00__p-1.00__c-5.00___swe_bench_lite_test
+2025-10-24 15:40:40,777 - INFO - swea-run - Running on instance django__django-11099
+2025-10-24 19:49:43,289 - INFO - swea-run - Stopping loop over instances
