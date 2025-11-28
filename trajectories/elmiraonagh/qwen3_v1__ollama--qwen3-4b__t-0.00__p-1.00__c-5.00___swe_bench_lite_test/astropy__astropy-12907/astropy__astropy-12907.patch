@@ -1,0 +1,13 @@
+diff --git a/reproduce_error.py b/reproduce_error.py
+new file mode 100644
+index 000000000..7c856c6a9
+--- /dev/null
++++ b/reproduce_error.py
+@@ -0,0 +1,7 @@
++from astropy.modeling import models as m
++from astropy.modeling.separable import separability_matrix
++
++cm = m.Linear1D(10) & m.Linear1D(5)
++nested_cm = m.Pix2Sky_TAN() & cm
++
++print(separability_matrix(nested_cm))

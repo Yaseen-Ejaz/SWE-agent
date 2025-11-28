@@ -1,0 +1,168 @@
+2025-10-19 19:54:27,597 - INFO - swea-run - Starting run. Find output files at /Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/trajectories/elmiraonagh/qwen3__ollama--qwen3:4b__t-0.00__p-1.00__c-5.00___swe_bench_lite_test
+2025-10-19 19:54:27,599 - INFO - swea-run - Running on instance astropy__astropy-14182
+2025-10-19 21:02:40,428 - ERROR - swea-run - Traceback (most recent call last):
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/aiohttp/client_reqrep.py", line 539, in start
+    message, payload = await protocol.read()  # type: ignore[union-attr]
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/aiohttp/streams.py", line 680, in read
+    await self._waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/sweagent/run/run_batch.py", line 311, in run_instance
+    result = self._run_instance(instance)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/sweagent/run/run_batch.py", line 371, in _run_instance
+    env.close()
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/sweagent/environment/swe_env.py", line 171, in close
+    asyncio.run(self.deployment.stop())
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/swerex/deployment/docker.py", line 280, in stop
+    await self._runtime.close()
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/swerex/runtime/remote.py", line 265, in close
+    return await self._request("close", None, CloseResponse)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/swerex/runtime/remote.py", line 197, in _request
+    raise last_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/swerex/runtime/remote.py", line 180, in _request
+    async with session.post(
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/aiohttp/client.py", line 1517, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/aiohttp/client.py", line 786, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/aiohttp/client.py", line 764, in _connect_and_send_request
+    await resp.start(conn)
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/aiohttp/client_reqrep.py", line 534, in start
+    with self._timer:
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/aiohttp/helpers.py", line 713, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+
+2025-10-19 21:02:40,438 - ERROR - swea-run - ❌ Failed on astropy__astropy-14182: 
+2025-10-19 21:07:25,081 - INFO - swea-run - Starting run. Find output files at /Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/trajectories/elmiraonagh/qwen3__ollama--qwen3:4b__t-0.00__p-1.00__c-5.00___swe_bench_lite_test
+2025-10-19 21:07:25,083 - INFO - swea-run - Running on instance django__django-10914
+2025-10-19 22:13:59,416 - ERROR - swea-run - Traceback (most recent call last):
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/aiohttp/client_reqrep.py", line 539, in start
+    message, payload = await protocol.read()  # type: ignore[union-attr]
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/aiohttp/streams.py", line 680, in read
+    await self._waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/sweagent/run/run_batch.py", line 311, in run_instance
+    result = self._run_instance(instance)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/sweagent/run/run_batch.py", line 371, in _run_instance
+    env.close()
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/sweagent/environment/swe_env.py", line 171, in close
+    asyncio.run(self.deployment.stop())
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/swerex/deployment/docker.py", line 280, in stop
+    await self._runtime.close()
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/swerex/runtime/remote.py", line 265, in close
+    return await self._request("close", None, CloseResponse)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/swerex/runtime/remote.py", line 197, in _request
+    raise last_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/swerex/runtime/remote.py", line 180, in _request
+    async with session.post(
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/aiohttp/client.py", line 1517, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/aiohttp/client.py", line 786, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/aiohttp/client.py", line 764, in _connect_and_send_request
+    await resp.start(conn)
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/aiohttp/client_reqrep.py", line 534, in start
+    with self._timer:
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/aiohttp/helpers.py", line 713, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+
+2025-10-19 22:13:59,426 - ERROR - swea-run - ❌ Failed on django__django-10914: 
+2025-10-19 22:13:59,431 - INFO - swea-run - Running on instance sympy__sympy-12419
+2025-10-19 22:19:52,394 - INFO - swea-run - Running on instance matplotlib__matplotlib-24970
+2025-10-19 22:40:00,836 - INFO - swea-run - Running on instance astropy__astropy-12907
+2025-10-19 23:12:06,224 - INFO - swea-run - Running on instance scikit-learn__scikit-learn-10297
+2025-10-19 23:49:19,530 - ERROR - swea-run - Traceback (most recent call last):
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/aiohttp/client_reqrep.py", line 539, in start
+    message, payload = await protocol.read()  # type: ignore[union-attr]
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/aiohttp/streams.py", line 680, in read
+    await self._waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/sweagent/run/run_batch.py", line 311, in run_instance
+    result = self._run_instance(instance)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/sweagent/run/run_batch.py", line 371, in _run_instance
+    env.close()
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/sweagent/environment/swe_env.py", line 171, in close
+    asyncio.run(self.deployment.stop())
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/swerex/deployment/docker.py", line 280, in stop
+    await self._runtime.close()
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/swerex/runtime/remote.py", line 265, in close
+    return await self._request("close", None, CloseResponse)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/swerex/runtime/remote.py", line 197, in _request
+    raise last_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/swerex/runtime/remote.py", line 180, in _request
+    async with session.post(
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/aiohttp/client.py", line 1517, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/aiohttp/client.py", line 786, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/aiohttp/client.py", line 764, in _connect_and_send_request
+    await resp.start(conn)
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/aiohttp/client_reqrep.py", line 534, in start
+    with self._timer:
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/assignment_version1/SWE-agent/myenv311/lib/python3.11/site-packages/aiohttp/helpers.py", line 713, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+
+2025-10-19 23:49:19,545 - ERROR - swea-run - ❌ Failed on scikit-learn__scikit-learn-10297: 
+2025-10-19 23:49:19,551 - INFO - swea-run - Running on instance pytest-dev__pytest-7432
+2025-10-20 00:50:03,733 - INFO - swea-run - Running on instance astropy__astropy-14995
+2025-10-20 02:36:36,229 - INFO - swea-run - Running on instance django__django-11133
+2025-10-20 03:01:45,304 - INFO - swea-run - Running on instance django__django-11099

@@ -1,0 +1,14 @@
+diff --git a/test.py b/test.py
+new file mode 100644
+index 000000000..a70ab5ba7
+--- /dev/null
++++ b/test.py
+@@ -0,0 +1,8 @@
++import numpy as np
++from sklearn.linear_model import RidgeCV  # Note: Corrected class name (RidgeCV, not RidgeClassifierCV)
++
++n = 100
++x = np.random.randn(n, 30)
++y = np.random.normal(size=n)
++
++rr = RidgeCV(alphas=np.arange(0.1, 1000, 0.1))

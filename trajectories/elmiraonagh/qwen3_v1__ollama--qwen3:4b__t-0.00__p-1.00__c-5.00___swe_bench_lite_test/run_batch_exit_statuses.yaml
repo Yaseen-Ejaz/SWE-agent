@@ -1,4 +1,0 @@
-instances_by_exit_status:
-    Uncaught DockerPullError:
-    - django__django-11099
-total_cost: 0

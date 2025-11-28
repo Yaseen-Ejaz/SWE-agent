@@ -1,0 +1,17 @@
+instances_by_exit_status:
+    Uncaught TimeoutError:
+    - django__django-10914
+    - scikit-learn__scikit-learn-10297
+    exit_command:
+    - astropy__astropy-12907
+    exit_error:
+    - pytest-dev__pytest-7432
+    exit_format:
+    - sympy__sympy-12419
+    - matplotlib__matplotlib-24970
+    submitted (exit_cost):
+    - django__django-11099
+    submitted (exit_format):
+    - astropy__astropy-14995
+    - django__django-11133
+total_cost: 0.0

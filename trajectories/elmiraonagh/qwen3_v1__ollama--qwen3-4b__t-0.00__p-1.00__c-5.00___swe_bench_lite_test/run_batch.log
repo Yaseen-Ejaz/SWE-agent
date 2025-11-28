@@ -1,0 +1,231 @@
+2025-10-21 02:18:57,788 - INFO - swea-run - Starting run. Find output files at /Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/trajectories/elmiraonagh/qwen3_v1__ollama--qwen3:4b__t-0.00__p-1.00__c-5.00___swe_bench_lite_test
+2025-10-21 02:18:57,789 - INFO - swea-run - Running on instance astropy__astropy-14182
+2025-10-21 08:30:41,864 - INFO - swea-run - Stopping loop over instances
+2025-10-21 08:43:07,580 - INFO - swea-run - Starting run. Find output files at /Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/trajectories/elmiraonagh/qwen3_v1__ollama--qwen3:4b__t-0.00__p-1.00__c-5.00___swe_bench_lite_test
+2025-10-21 08:43:07,582 - INFO - swea-run - Running on instance scikit-learn__scikit-learn-10297
+2025-10-21 09:28:11,077 - ERROR - swea-run - Traceback (most recent call last):
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/run_batch.py", line 311, in run_instance
+    result = self._run_instance(instance)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/run_batch.py", line 373, in _run_instance
+    self._chooks.on_instance_completed(result=result)
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/hooks/abstract.py", line 67, in on_instance_completed
+    hook.on_instance_completed(result=result)
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/hooks/swe_bench_evaluate.py", line 78, in on_instance_completed
+    subprocess.Popen(
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'sb-cli'
+
+2025-10-21 09:28:11,081 - ERROR - swea-run - ❌ Failed on scikit-learn__scikit-learn-10297: [Errno 2] No such file or directory: 'sb-cli'
+2025-10-21 10:11:27,919 - INFO - swea-run - Starting run. Find output files at /Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/trajectories/elmiraonagh/qwen3_v1__ollama--qwen3:4b__t-0.00__p-1.00__c-5.00___swe_bench_lite_test
+2025-10-21 10:11:27,921 - INFO - swea-run - Running on instance sympy__sympy-12419
+2025-10-21 10:17:03,185 - ERROR - swea-run - Traceback (most recent call last):
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/run_batch.py", line 311, in run_instance
+    result = self._run_instance(instance)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/run_batch.py", line 373, in _run_instance
+    self._chooks.on_instance_completed(result=result)
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/hooks/abstract.py", line 67, in on_instance_completed
+    hook.on_instance_completed(result=result)
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/hooks/swe_bench_evaluate.py", line 78, in on_instance_completed
+    subprocess.Popen(
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'sb-cli'
+
+2025-10-21 10:17:03,188 - ERROR - swea-run - ❌ Failed on sympy__sympy-12419: [Errno 2] No such file or directory: 'sb-cli'
+2025-10-21 10:19:39,711 - INFO - swea-run - Starting run. Find output files at /Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/trajectories/elmiraonagh/qwen3_v1__ollama--qwen3:4b__t-0.00__p-1.00__c-5.00___swe_bench_lite_test
+2025-10-21 10:19:39,713 - INFO - swea-run - Running on instance django__django-10914
+2025-10-21 13:08:47,818 - INFO - swea-run - Stopping loop over instances
+2025-10-21 13:09:30,543 - INFO - swea-run - Starting run. Find output files at /Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/trajectories/elmiraonagh/qwen3_v1__ollama--qwen3:4b__t-0.00__p-1.00__c-5.00___swe_bench_lite_test
+2025-10-21 13:09:30,545 - INFO - swea-run - Running on instance pytest-dev__pytest-7432
+2025-10-21 14:01:56,474 - ERROR - swea-run - Traceback (most recent call last):
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/run_batch.py", line 311, in run_instance
+    result = self._run_instance(instance)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/run_batch.py", line 373, in _run_instance
+    self._chooks.on_instance_completed(result=result)
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/hooks/abstract.py", line 67, in on_instance_completed
+    hook.on_instance_completed(result=result)
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/hooks/swe_bench_evaluate.py", line 78, in on_instance_completed
+    subprocess.Popen(
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'sb-cli'
+
+2025-10-21 14:01:56,478 - ERROR - swea-run - ❌ Failed on pytest-dev__pytest-7432: [Errno 2] No such file or directory: 'sb-cli'
+2025-10-21 14:16:33,082 - INFO - swea-run - Starting run. Find output files at /Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/trajectories/elmiraonagh/qwen3_v1__ollama--qwen3:4b__t-0.00__p-1.00__c-5.00___swe_bench_lite_test
+2025-10-21 14:16:33,084 - INFO - swea-run - Running on instance matplotlib__matplotlib-24970
+2025-10-21 14:26:34,409 - ERROR - swea-run - Traceback (most recent call last):
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/run_batch.py", line 311, in run_instance
+    result = self._run_instance(instance)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/run_batch.py", line 373, in _run_instance
+    self._chooks.on_instance_completed(result=result)
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/hooks/abstract.py", line 67, in on_instance_completed
+    hook.on_instance_completed(result=result)
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/hooks/swe_bench_evaluate.py", line 78, in on_instance_completed
+    subprocess.Popen(
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'sb-cli'
+
+2025-10-21 14:26:34,413 - ERROR - swea-run - ❌ Failed on matplotlib__matplotlib-24970: [Errno 2] No such file or directory: 'sb-cli'
+2025-10-21 14:29:12,394 - INFO - swea-run - Starting run. Find output files at /Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/trajectories/elmiraonagh/qwen3_v1__ollama--qwen3:4b__t-0.00__p-1.00__c-5.00___swe_bench_lite_test
+2025-10-21 14:29:12,396 - INFO - swea-run - Running on instance django__django-11133
+2025-10-21 16:42:33,677 - ERROR - swea-run - Traceback (most recent call last):
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/run_batch.py", line 311, in run_instance
+    result = self._run_instance(instance)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/run_batch.py", line 373, in _run_instance
+    self._chooks.on_instance_completed(result=result)
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/hooks/abstract.py", line 67, in on_instance_completed
+    hook.on_instance_completed(result=result)
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/hooks/swe_bench_evaluate.py", line 78, in on_instance_completed
+    subprocess.Popen(
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'sb-cli'
+
+2025-10-21 16:42:33,681 - ERROR - swea-run - ❌ Failed on django__django-11133: [Errno 2] No such file or directory: 'sb-cli'
+2025-10-21 21:24:12,645 - INFO - swea-run - Starting run. Find output files at /Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/trajectories/elmiraonagh/qwen3_v1__ollama--qwen3:4b__t-0.00__p-1.00__c-5.00___swe_bench_lite_test
+2025-10-21 21:24:12,647 - INFO - swea-run - Running on instance django__django-11099
+2025-10-21 23:43:35,238 - INFO - swea-run - Stopping loop over instances
+2025-10-21 23:44:20,101 - INFO - swea-run - Starting run. Find output files at /Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/trajectories/elmiraonagh/qwen3_v1__ollama--qwen3:4b__t-0.00__p-1.00__c-5.00___swe_bench_lite_test
+2025-10-21 23:44:20,104 - INFO - swea-run - Running on instance astropy__astropy-14995
+2025-10-22 00:18:39,706 - ERROR - swea-run - Traceback (most recent call last):
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/run_batch.py", line 311, in run_instance
+    result = self._run_instance(instance)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/run_batch.py", line 373, in _run_instance
+    self._chooks.on_instance_completed(result=result)
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/hooks/abstract.py", line 67, in on_instance_completed
+    hook.on_instance_completed(result=result)
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/hooks/swe_bench_evaluate.py", line 78, in on_instance_completed
+    subprocess.Popen(
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'sb-cli'
+
+2025-10-22 00:18:39,710 - ERROR - swea-run - ❌ Failed on astropy__astropy-14995: [Errno 2] No such file or directory: 'sb-cli'
+2025-10-22 09:46:00,428 - INFO - swea-run - Starting run. Find output files at /Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/trajectories/elmiraonagh/qwen3_v1__ollama--qwen3:4b__t-0.00__p-1.00__c-5.00___swe_bench_lite_test
+2025-10-22 09:46:00,430 - INFO - swea-run - Running on instance astropy__astropy-12907
+2025-10-22 10:04:46,210 - ERROR - swea-run - Traceback (most recent call last):
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/run_batch.py", line 311, in run_instance
+    result = self._run_instance(instance)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/run_batch.py", line 360, in _run_instance
+    result = agent.run(
+             ^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/agent/agents.py", line 1279, in run
+    self.setup(env=env, problem_statement=problem_statement, output_dir=output_dir)
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/agent/agents.py", line 593, in setup
+    self.tools.install(self._env)
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/tools/tools.py", line 253, in install
+    self._install_commands(env)
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/tools/tools.py", line 305, in _install_commands
+    env.communicate(
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/environment/swe_env.py", line 220, in communicate
+    r = asyncio.run(
+        ^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/myenv/lib/python3.11/site-packages/swerex/runtime/remote.py", line 205, in run_in_session
+    return await self._request("run_in_session", action, Observation)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/myenv/lib/python3.11/site-packages/swerex/runtime/remote.py", line 197, in _request
+    raise last_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/myenv/lib/python3.11/site-packages/swerex/runtime/remote.py", line 185, in _request
+    await self._handle_response_errors(resp)
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/myenv/lib/python3.11/site-packages/swerex/runtime/remote.py", line 122, in _handle_response_errors
+    self._handle_transfer_exception(exc_transfer)
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/myenv/lib/python3.11/site-packages/swerex/runtime/remote.py", line 115, in _handle_transfer_exception
+    raise exception from None
+swerex.exceptions.CommandTimeoutError: timeout after 300.0 seconds while running command 'export PATH=/root/tools/edit_anthropic/bin:$PATH && chmod +x /root/tools/edit_anthropic/bin/* && cd /root/tools/edit_anthropic && source install.sh && chmod +x /root/tools/edit_anthropic/bin/*'
+
+2025-10-22 10:04:46,219 - ERROR - swea-run - ❌ Failed on astropy__astropy-12907: timeout after 300.0 seconds while running command 'export PATH=/root/tools/edit_anthropic/bin:$PATH && chmod +x /root/tools/edit_anthropic/bin/* && cd /root/tools/edit_anthropic && source install.sh && chmod +x /root/tools/edit_anthropic/bin/*'
+2025-10-22 10:24:38,228 - INFO - swea-run - Starting run. Find output files at /Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/trajectories/elmiraonagh/qwen3_v1__ollama--qwen3:4b__t-0.00__p-1.00__c-5.00___swe_bench_lite_test
+2025-10-22 10:24:38,230 - INFO - swea-run - Running on instance astropy__astropy-14182
+2025-10-22 11:29:43,325 - INFO - swea-run - Stopping loop over instances
+2025-10-22 15:46:18,440 - INFO - swea-run - Starting run. Find output files at /Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/trajectories/elmiraonagh/qwen3_v1__ollama--qwen3:4b__t-0.00__p-1.00__c-5.00___swe_bench_lite_test
+2025-10-22 15:46:18,442 - INFO - swea-run - Running on instance astropy__astropy-12907
+2025-10-22 16:33:38,649 - ERROR - swea-run - Traceback (most recent call last):
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/run_batch.py", line 311, in run_instance
+    result = self._run_instance(instance)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/run_batch.py", line 373, in _run_instance
+    self._chooks.on_instance_completed(result=result)
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/hooks/abstract.py", line 67, in on_instance_completed
+    hook.on_instance_completed(result=result)
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/hooks/swe_bench_evaluate.py", line 78, in on_instance_completed
+    subprocess.Popen(
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'sb-cli'
+
+2025-10-22 16:33:38,653 - ERROR - swea-run - ❌ Failed on astropy__astropy-12907: [Errno 2] No such file or directory: 'sb-cli'
+2025-10-24 15:39:51,510 - INFO - swea-run - Starting run. Find output files at /Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/trajectories/elmiraonagh/qwen3_v1__ollama--qwen3:4b__t-0.00__p-1.00__c-5.00___swe_bench_lite_test
+2025-10-24 15:39:51,512 - INFO - swea-run - Running on instance django__django-11099
+2025-10-24 15:39:51,988 - ERROR - swea-run - Traceback (most recent call last):
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/myenv/lib/python3.11/site-packages/swerex/deployment/docker.py", line 143, in _pull_image
+    _pull_image(self._config.image, self._config.container_runtime)
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/myenv/lib/python3.11/site-packages/swerex/deployment/docker.py", line 42, in _pull_image
+    raise subprocess.CalledProcessError(e.returncode, e.cmd, e.output, e.stderr) from None
+subprocess.CalledProcessError: Command '['docker', 'pull', 'docker.io/swebench/sweb.eval.x86_64.django_1776_django-11099:latest']' returned non-zero exit status 1.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/run_batch.py", line 311, in run_instance
+    result = self._run_instance(instance)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/run/run_batch.py", line 358, in _run_instance
+    env.start()
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/environment/swe_env.py", line 111, in start
+    self._init_deployment()
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/sweagent/environment/swe_env.py", line 183, in _init_deployment
+    asyncio.run(self.deployment.start())
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/myenv/lib/python3.11/site-packages/swerex/deployment/docker.py", line 232, in start
+    self._pull_image()
+  File "/Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/myenv/lib/python3.11/site-packages/swerex/deployment/docker.py", line 148, in _pull_image
+    raise DockerPullError(msg) from e
+swerex.exceptions.DockerPullError: Failed to pull image docker.io/swebench/sweb.eval.x86_64.django_1776_django-11099:latest. Error: Cannot connect to the Docker daemon at unix:///Users/elmiraonagh/.docker/run/docker.sock. Is the docker daemon running?
+Output: 
+
+2025-10-24 15:39:51,994 - ERROR - swea-run - ❌ Failed on django__django-11099: Failed to pull image docker.io/swebench/sweb.eval.x86_64.django_1776_django-11099:latest. Error: Cannot connect to the Docker daemon at unix:///Users/elmiraonagh/.docker/run/docker.sock. Is the docker daemon running?
+Output: 
+2025-10-24 15:40:40,776 - INFO - swea-run - Starting run. Find output files at /Users/elmiraonagh/Desktop/courses/6444/assignment1/version2/SWE-agent/trajectories/elmiraonagh/qwen3_v1__ollama--qwen3:4b__t-0.00__p-1.00__c-5.00___swe_bench_lite_test
+2025-10-24 15:40:40,777 - INFO - swea-run - Running on instance django__django-11099
+2025-10-24 19:49:43,289 - INFO - swea-run - Stopping loop over instances
